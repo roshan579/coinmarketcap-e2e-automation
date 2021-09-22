@@ -1,0 +1,46 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">    
+	<localRepository>/repo/M2_REPO</localRepository>	
+	<mirrors>
+		<mirror>
+			<id>MavenRepo1</id>     	
+            <url>https://repo1.maven.org/maven2/</url>
+            <mirrorOf>coinmarketcap1</mirrorOf>
+        </mirror>
+		<mirror>
+			<id>MavenRepo2</id>     	
+            <url>https://repo.maven.apache.org/maven2</url>
+            <mirrorOf>coinmarketcap</mirrorOf>
+        </mirror>
+	</mirrors>
+	<profiles>
+		<profile>
+			<id>Maven+</id>
+			<properties>
+				<maven.test.skip>false</maven.test.skip>
+				<maven.test.failure.ignore>true</maven.test.failure.ignore>      			
+				<source.jdkversion>1.8</source.jdkversion>
+				<target.jdkversion>1.8</target.jdkversion>
+			</properties>	
+			<repositories>
+				<repository>
+					<id>Maven-repository-group</id>
+					<name>Maven Repository Group</name>
+					<url>http://repo1.maven.org/maven2/</url>
+					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</snapshots>
+				</repository>
+			</repositories>				
+		</profile>
+	</profiles>		
+	<activeProfiles>
+		<activeProfile>Maven+</activeProfile>
+	</activeProfiles>
+</settings>
